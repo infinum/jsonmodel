@@ -1,5 +1,11 @@
 ## Magical Data Modelling Framework for JSON
 
+
+
+## Fork note
+
+This version removes `[NSDecimalNumber class]` from the `allowedJSONTypes`. If this is removed from the lib, JSONModel will fallback to the custom implementation in code. Modelling NSDecimalNumber with the implementation from the JSONModel will cause wrong decimal number rounding for the numbers that can overflow.
+
 ### Version 1.2.0
 
 #####NB: Swift works in a different way under the hood than Objective-C. Therefore I can't find a way to re-create JSONModel in Swift. JSONModel in Objective-C works in Swift apps through CocoaPods or as an imported Objective-C library.
@@ -20,7 +26,6 @@ JSONModel is a library, which allows rapid creation of smart data models. You ca
 JSONModel automatically introspects your model classes and the structure of your JSON input and reduces drastically the amount of code you have to write.
 
 [![](http://www.touch-code-magazine.com/img/json.png)](http://www.touch-code-magazine.com/img/json.png)
-
 
 ------------------------------------
 Adding JSONModel to your project
@@ -268,8 +273,8 @@ Examples
 {
   return [[JSONKeyMapper alloc] initWithDictionary:@{
   <b>  @"order_id": @"id",
-    @"order_details.name": @"productName",
-    @"order_details.price.usd": @"price"</b>
+​    @"order_details.name": @"productName",
+​    @"order_details.price.usd": @"price"</b>
   }];
 }
 
